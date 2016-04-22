@@ -1,3 +1,5 @@
+package sg.gov.ida.kyc.web;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ftbs
  */
-@WebServlet(urlPatterns = {"/login"})
-public class Login extends HttpServlet {
+@WebServlet(urlPatterns = {"/customerView"})
+public class CustomerView extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,9 +33,16 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("login");
-        RequestDispatcher rd = request.getRequestDispatcher("query.jsp");
+        String id = request.getParameter("id");
+        String status = request.getParameter("status");
+        String owner = request.getParameter("owner");
+        //set the attribute
+        request.setAttribute("id", id);
+        request.setAttribute("status",status);
+        request.setAttribute("owner", owner);
+        RequestDispatcher rd = request.getRequestDispatcher("consent.jsp");
         rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
