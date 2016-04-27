@@ -38,6 +38,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label col-sm-1">Phone:</label>
+                        <div class="col-sm-3">
+                           <input type="text" class="form-control"/>   
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
                         <label class="control-label col-sm-1">Risk Rating:</label>
                         <div class="col-sm-3">
                          <select class="form-control" name="rating">
