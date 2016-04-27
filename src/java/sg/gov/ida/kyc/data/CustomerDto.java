@@ -70,13 +70,12 @@ public class CustomerDto implements Serializable{
         this.pepStatus = pepStatus;
     }
 
-
-    public String getPepReason() {
-        return pepReason;
+    public String getUid() {
+        return uid;
     }
 
-    public void setPepReason(String pepReason) {
-        this.pepReason = pepReason;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getName() {
@@ -87,15 +86,13 @@ public class CustomerDto implements Serializable{
         this.name = name;
     }
 
-    
-    public String getUid() {
-        return uid;
+    public String getPepReason() {
+        return pepReason;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setPepReason(String pepReason) {
+        this.pepReason = pepReason;
     }
-    
-    
+
     
 }

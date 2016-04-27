@@ -44,7 +44,7 @@ public class CustomerDAO {
             DaoDelegate.getInstance().close(session);
         }
     }
-    public List<CustomerDto> search(String name, String uid)
+ public List<CustomerDto> search(String name, String uid)
     {
         Session session = null;
         List custList = null;
@@ -52,7 +52,6 @@ public class CustomerDAO {
         {
             session =  DaoDelegate.getInstance().create();
             Criteria cr = session.createCriteria(CustomerDto.class);
-            cr.createCriteria("PepStatusDto");
             // Add restriction.
             Criterion nameR=null,uidR=null;
             if(name!=null&& !name.isEmpty())
@@ -67,10 +66,12 @@ public class CustomerDAO {
             }
             else if(nameR==null&&uidR!=null)
             {
+               System.out.println("adding uid R");
                cr.add(uidR);
             }
             else if(nameR!=null&&uidR==null)
             {
+               System.out.println("adding name R");
                cr.add(nameR);
             }
             
@@ -85,6 +86,5 @@ public class CustomerDAO {
             DaoDelegate.getInstance().close(session);
         }
         return custList;
-    }
-    
+    }    
 }
