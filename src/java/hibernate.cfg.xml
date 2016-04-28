@@ -11,6 +11,8 @@
     
     <mapping class="sg.gov.ida.kyc.data.CustomerDto"/>
     <mapping class="sg.gov.ida.kyc.data.PepStatusDto"/>
+    <mapping class="sg.gov.ida.kyc.data.BankDto"/>
+    
      
   </session-factory>
 </hibernate-configuration>

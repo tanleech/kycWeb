@@ -34,25 +34,26 @@ public class CustomerDto implements Serializable{
     private String phone;
     
     @ManyToOne(cascade=CascadeType.MERGE)
-    @JoinColumn(name="status_cd")
+    @JoinColumn(name="pep")
     private PepStatusDto pepStatus;
-    
-    @ManyToOne(cascade=CascadeType.MERGE)
-    @JoinColumn(name="bankId")
-    private BankDto bankDto;
     
     @Column(name="pep_reason")
     private String pepReason;
 
+    
+    @ManyToOne(cascade=CascadeType.MERGE)
+    @JoinColumn(name="originator")
+    private BankDto originator;
 
-    public BankDto getBankDto() {
-        return bankDto;
+    public BankDto getOriginator() {
+        return originator;
     }
 
-    public void setBankDto(BankDto bankDto) {
-        this.bankDto = bankDto;
+    public void setOriginator(BankDto originator) {
+        this.originator = originator;
     }
 
+    
     public String getAddress() {
         return address;
     }

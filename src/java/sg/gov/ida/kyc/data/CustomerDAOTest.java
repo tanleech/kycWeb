@@ -33,6 +33,8 @@ public class CustomerDAOTest {
         for(int i=0;i<list.size();i++)
         {
             System.out.println("Name: "+list.get(i).getName());
+            System.out.println("PEP: "+list.get(i).getPepStatus().getDescription());
+            System.out.println("Owned by: "+list.get(i).getOriginator().getName());
         }
         
         

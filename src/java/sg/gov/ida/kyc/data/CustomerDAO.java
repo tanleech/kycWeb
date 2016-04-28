@@ -52,6 +52,10 @@ public class CustomerDAO {
         {
             session =  DaoDelegate.getInstance().create();
             Criteria cr = session.createCriteria(CustomerDto.class);
+            
+            Criteria bank = cr.createCriteria("originator");
+            Criteria pep  = cr.createCriteria("pepStatus");
+            
             // Add restriction.
             Criterion nameR=null,uidR=null;
             if(name!=null&& !name.isEmpty())
@@ -66,12 +70,12 @@ public class CustomerDAO {
             }
             else if(nameR==null&&uidR!=null)
             {
-               System.out.println("adding uid R");
+               //System.out.println("adding uid R");
                cr.add(uidR);
             }
             else if(nameR!=null&&uidR==null)
             {
-               System.out.println("adding name R");
+               //System.out.println("adding name R");
                cr.add(nameR);
             }
             
