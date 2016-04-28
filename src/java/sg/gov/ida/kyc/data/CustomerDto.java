@@ -37,14 +37,21 @@ public class CustomerDto implements Serializable{
     @JoinColumn(name="status_cd")
     private PepStatusDto pepStatus;
     
-    /*
     @ManyToOne(cascade=CascadeType.MERGE)
-    @JoinColumn(name="Title_id")
-    private TitleDTO title;
-    */
+    @JoinColumn(name="bankId")
+    private BankDto bankDto;
     
     @Column(name="pep_reason")
     private String pepReason;
+
+
+    public BankDto getBankDto() {
+        return bankDto;
+    }
+
+    public void setBankDto(BankDto bankDto) {
+        this.bankDto = bankDto;
+    }
 
     public String getAddress() {
         return address;
