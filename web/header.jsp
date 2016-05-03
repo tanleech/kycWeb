@@ -3,6 +3,8 @@
     Created on : Apr 14, 2016, 10:35:22 AM
     Author     : ftbs
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="sg.gov.ida.kyc.data.EmployeeDto" %>
 
      <header class="main-header">
         <div class="logo">
@@ -18,7 +20,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <span class="hidden-xs">
                                         <b>
-                                            Mike
+                                           
                                         </b>
                                     </span>
                                 </a>

@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import sg.gov.ida.kyc.data.EmployeeDAO;
 import sg.gov.ida.kyc.data.EmployeeDto;
 
@@ -41,7 +42,7 @@ public class Login extends HttpServlet {
         String id = request.getParameter("loginname");
         String password = request.getParameter("password");
         String page = "login.jsp";
-        if(authenticate(id,password))
+        if(authenticate(id,password,request))
         {
             page = "query.jsp";
         }
@@ -49,7 +50,7 @@ public class Login extends HttpServlet {
         rd.forward(request, response);
     }
     
-    protected boolean authenticate(String login, String password)
+    protected boolean authenticate(String login, String password, HttpServletRequest request)
     {
         boolean auth = false;
         EmployeeDAO emp = new EmployeeDAO();
@@ -58,6 +59,8 @@ public class Login extends HttpServlet {
         if(employee!=null){
             if(password.equals(employee.getPassword()))
             {
+                HttpSession session = request.getSession();
+                session.setAttribute("login", employee);
                 auth = true;
             }
         }
