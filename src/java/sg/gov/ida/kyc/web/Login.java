@@ -6,6 +6,7 @@ package sg.gov.ida.kyc.web;
  * and open the template in the editor.
  */
 
+
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sg.gov.ida.kyc.data.EmployeeDAO;
+import sg.gov.ida.kyc.data.EmployeeDto;
 
 /**
  *
@@ -34,8 +37,34 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         System.out.println("login");
-        RequestDispatcher rd = request.getRequestDispatcher("query.jsp");
+        //lookup the password
+        String id = request.getParameter("loginname");
+        String password = request.getParameter("password");
+        String page = "login.jsp";
+        if(authenticate(id,password))
+        {
+            page = "query.jsp";
+        }
+        RequestDispatcher rd = request.getRequestDispatcher(page);
         rd.forward(request, response);
+    }
+    
+    protected boolean authenticate(String login, String password)
+    {
+        boolean auth = false;
+        EmployeeDAO emp = new EmployeeDAO();
+        EmployeeDto employee = emp.search(login);
+        System.out.println("login: "+login);
+        System.out.println("password: "+password);
+        System.out.println("Employee: "+employee);
+        
+        if(employee!=null){
+            if(password.equals(employee.getPassword()))
+            {
+                auth = true;
+            }
+        }
+        return auth;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
