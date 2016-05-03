@@ -54,9 +54,6 @@ public class Login extends HttpServlet {
         boolean auth = false;
         EmployeeDAO emp = new EmployeeDAO();
         EmployeeDto employee = emp.search(login);
-        System.out.println("login: "+login);
-        System.out.println("password: "+password);
-        System.out.println("Employee: "+employee);
         
         if(employee!=null){
             if(password.equals(employee.getPassword()))
