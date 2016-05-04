@@ -20,7 +20,9 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <span class="hidden-xs">
                                         <b>
-                                           
+                                            <c:if test="${!empty sessionScope.login}">
+                                                ${sessionScope.login.name}
+                                            </c:if>
                                         </b>
                                     </span>
                                 </a>
