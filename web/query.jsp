@@ -3,6 +3,9 @@
     Created on : Apr 13, 2016, 1:48:42 PM
     Author     : ftbs
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="sg.gov.ida.kyc.data.CustomerDto" %>
+<%@ page import="sg.gov.ida.kyc.data.BankDto" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,10 +31,19 @@
                             <th>Identifier</th>
                             <th>Name</th>
                             <th>Ownership</th>
-                            <th>Consent Status</th>
+                            <th>Consent</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach items="${requestScope.custList}" var="entry">
+                            <tr>
+                                <td><a href="customerView">${entry.uid}</a></td>
+                                <td>${entry.name}</td>
+                                <td>${entry.originator.name}</td>
+                                <td>${entry.consent.name}</td>
+                            </tr>
+                            
+                        </c:forEach>
                         <!--
                         <tr>
                             <td><a href="customerView">S95XXXXXJ</a></td>

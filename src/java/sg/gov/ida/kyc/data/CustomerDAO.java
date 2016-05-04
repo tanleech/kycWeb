@@ -44,7 +44,34 @@ public class CustomerDAO {
             DaoDelegate.getInstance().close(session);
         }
     }
- public List<CustomerDto> search(String name, String uid)
+    
+    public List<CustomerDto> all()
+    {
+        Session session = null;
+        List custList = null;
+        try
+        {
+            session =  DaoDelegate.getInstance().create();
+            Criteria cr = session.createCriteria(CustomerDto.class);
+            
+            Criteria bank = cr.createCriteria("originator");
+            Criteria consent = cr.createCriteria("consent");
+            Criteria pep  = cr.createCriteria("pepStatus");
+            
+            custList = cr.list();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        finally
+        {
+            DaoDelegate.getInstance().close(session);
+        }
+        return custList;
+
+    }
+    public List<CustomerDto> search(String name, String uid)
     {
         Session session = null;
         List custList = null;

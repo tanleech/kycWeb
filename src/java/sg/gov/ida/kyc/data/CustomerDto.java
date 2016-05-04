@@ -44,7 +44,21 @@ public class CustomerDto implements Serializable{
     @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name="originator")
     private BankDto originator;
+    
+    @ManyToOne(cascade=CascadeType.MERGE)
+    @JoinColumn(name="consent")
+    private BankDto consent;
 
+    public BankDto getConsent() {
+        return consent;
+    }
+
+    public void setConsent(BankDto consent) {
+        this.consent = consent;
+    }
+    
+
+    
     public BankDto getOriginator() {
         return originator;
     }

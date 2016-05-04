@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
         String page = "login.jsp";
         if(authenticate(id,password,request))
         {
-            page = "query.jsp";
+            page = "/customerList";
         }
         RequestDispatcher rd = request.getRequestDispatcher(page);
         rd.forward(request, response);
