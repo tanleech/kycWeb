@@ -13,6 +13,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import sg.gov.ida.kyc.data.CustomerDAO;
+import sg.gov.ida.kyc.data.CustomerDto;
+import sg.gov.ida.kyc.data.EmployeeDto;
 
 /**
  *
@@ -33,14 +37,26 @@ public class CustomerView extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("id");
-        String status = request.getParameter("status");
-        String owner = request.getParameter("owner");
+        String uid = request.getParameter("uid");
+        String consent = request.getParameter("consent");
+        
         //set the attribute
-        request.setAttribute("id", id);
-        request.setAttribute("status",status);
-        request.setAttribute("owner", owner);
-        RequestDispatcher rd = request.getRequestDispatcher("consent.jsp");
+        /*
+        request.setAttribute("uid", uid);
+        request.setAttribute("orig", orig);
+        */
+        HttpSession session = request.getSession();
+        EmployeeDto emp = (EmployeeDto)session.getAttribute("login");
+        int permission = Integer.parseInt(consent);
+        String page = "consent.jsp";
+        if(permission == emp.getBank().getBankId())
+        {
+            CustomerDAO custDAO = new CustomerDAO();
+            CustomerDto cust = custDAO.findByKey(uid, permission);
+            request.setAttribute("cust", cust);
+            page = "customer.jsp";
+        }
+        RequestDispatcher rd = request.getRequestDispatcher(page);
         rd.forward(request, response);
 
     }

@@ -71,6 +71,40 @@ public class CustomerDAO {
         return custList;
 
     }
+    
+    public CustomerDto findByKey(String uid, int originator)
+    {
+        Session session = null;
+        CustomerDto cust = null;
+        try
+        {
+            session =  DaoDelegate.getInstance().create();
+            Criteria criteria = session.createCriteria(CustomerDto.class)
+            .add(Restrictions.eq("uid", uid));            
+            
+             Criteria orig = criteria.createCriteria("originator");
+             Criteria consent = criteria.createCriteria("consent");
+             
+             Criteria pep  = criteria.createCriteria("pepStatus");
+           
+            Object result = criteria.uniqueResult();
+            if(result!=null)
+            {
+                cust = (CustomerDto) result;
+            }            
+            
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        finally
+        {
+            DaoDelegate.getInstance().close(session);
+        }
+        return cust;
+
+    }
     public List<CustomerDto> search(String name, String uid)
     {
         Session session = null;
@@ -80,7 +114,8 @@ public class CustomerDAO {
             session =  DaoDelegate.getInstance().create();
             Criteria cr = session.createCriteria(CustomerDto.class);
             
-            Criteria bank = cr.createCriteria("originator");
+            Criteria orig = cr.createCriteria("originator");
+            Criteria consent = cr.createCriteria("consent");
             Criteria pep  = cr.createCriteria("pepStatus");
             
             // Add restriction.

@@ -5,7 +5,6 @@
  */
 package sg.gov.ida.kyc.data;
 
-import java.util.List;
 import org.hibernate.Criteria;
 
 import org.hibernate.Session;

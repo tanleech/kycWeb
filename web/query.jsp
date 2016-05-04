@@ -31,13 +31,13 @@
                             <th>Identifier</th>
                             <th>Name</th>
                             <th>Ownership</th>
-                            <th>Consent</th>
+                            <th>Consent for</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${requestScope.custList}" var="entry">
                             <tr>
-                                <td><a href="customerView">${entry.uid}</a></td>
+                                <td><a href="customerView?uid=${entry.uid}&consent=${entry.consent.bankId}">${entry.uid}</a></td>
                                 <td>${entry.name}</td>
                                 <td>${entry.originator.name}</td>
                                 <td>${entry.consent.name}</td>
