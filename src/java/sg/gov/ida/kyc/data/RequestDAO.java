@@ -9,7 +9,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import sg.gov.ida.kyc.data.dto.CustomerDto;
+import org.hibernate.criterion.Restrictions;
 import sg.gov.ida.kyc.data.dto.RequestDto;
 
 /**
@@ -53,12 +53,13 @@ public class RequestDAO {
         try
         {
             session =  DaoDelegate.getInstance().create();
-            Criteria cr = session.createCriteria(RequestDto.class);
-            
-            Criteria owner = cr.createCriteria("owner");
+            Criteria cr = session.createCriteria(RequestDto.class,"request");
+            cr.createAlias("request.owner", "owner");
+            cr.add(Restrictions.eq("owner.bankId", Integer.parseInt(ownerId)));
+           
+            //Criteria owner = cr.createCriteria("owner");
             Criteria requester = cr.createCriteria("requester");
             Criteria customer  = cr.createCriteria("customer");
-            
             reqList = cr.list();
         }
         catch (Exception ex)

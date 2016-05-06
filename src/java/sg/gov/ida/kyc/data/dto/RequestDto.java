@@ -35,9 +35,6 @@ public class RequestDto implements Serializable {
     @JoinColumn(name="requester")
     private BankDto requester;
     
-    @ManyToOne(cascade=CascadeType.MERGE)
-    @JoinColumn(name="originator")
-    private BankDto originator;
     
     @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name="uid")
@@ -67,13 +64,6 @@ public class RequestDto implements Serializable {
         this.requester = requester;
     }
 
-    public BankDto getOriginator() {
-        return originator;
-    }
-
-    public void setOriginator(BankDto originator) {
-        this.originator = originator;
-    }
 
     public CustomerDto getCustomer() {
         return customer;
