@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sg.gov.ida.kyc.data.CustomerDAO;
-import sg.gov.ida.kyc.data.CustomerDto;
+import sg.gov.ida.kyc.data.dto.CustomerDto;
 
 /**
  *

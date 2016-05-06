@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sg.gov.ida.kyc.data;
+package sg.gov.ida.kyc.data.dto;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity  
 @Table(name= "pep_status")
-public class PepStatusDto {
+public class PepStatusDto implements Serializable{
     
     @Id
     @Column(name="status_cd")

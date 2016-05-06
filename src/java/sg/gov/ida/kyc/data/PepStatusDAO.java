@@ -10,6 +10,7 @@ package sg.gov.ida.kyc.data;
  * @author root
  */
 
+import sg.gov.ida.kyc.data.dto.PepStatusDto;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;

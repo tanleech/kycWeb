@@ -5,6 +5,7 @@
  */
 package sg.gov.ida.kyc.data;
 
+import sg.gov.ida.kyc.data.dto.EmployeeDto;
 import org.hibernate.Criteria;
 
 import org.hibernate.Session;

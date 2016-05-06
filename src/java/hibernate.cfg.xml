@@ -9,10 +9,12 @@
     <property name="hibernate.connection.password">toor</property>
     <property name="hibernate.connection.pool_size">20</property>
     
-    <mapping class="sg.gov.ida.kyc.data.CustomerDto"/>
-    <mapping class="sg.gov.ida.kyc.data.PepStatusDto"/>
-    <mapping class="sg.gov.ida.kyc.data.BankDto"/>
-    <mapping class="sg.gov.ida.kyc.data.EmployeeDto"/>
+    <mapping class="sg.gov.ida.kyc.data.dto.CustomerDto"/>
+    <mapping class="sg.gov.ida.kyc.data.dto.PepStatusDto"/>
+    <mapping class="sg.gov.ida.kyc.data.dto.BankDto"/>
+    <mapping class="sg.gov.ida.kyc.data.dto.EmployeeDto"/>
+    <mapping class="sg.gov.ida.kyc.data.dto.RequestDto"/>
+    
     
      
   </session-factory>
