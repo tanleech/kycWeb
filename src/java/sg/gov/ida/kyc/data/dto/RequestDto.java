@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @Entity  
 @Table(name= "request")  
 
-public class RequestDTO implements Serializable {
+public class RequestDto implements Serializable {
     
     @Id
     @Column(name = "reqId")
