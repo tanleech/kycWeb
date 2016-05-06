@@ -4,7 +4,7 @@
     Author     : ftbs
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="sg.gov.ida.kyc.data.EmployeeDto" %>
+<%@ page import="sg.gov.ida.kyc.data.dto.EmployeeDto" %>
 
      <header class="main-header">
         <div class="logo">

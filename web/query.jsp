@@ -4,9 +4,9 @@
     Author     : ftbs
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="sg.gov.ida.kyc.data.CustomerDto" %>
-<%@ page import="sg.gov.ida.kyc.data.BankDto" %>
-<%@ page import="sg.gov.ida.kyc.data.PepStatusDto" %>
+<%@ page import="sg.gov.ida.kyc.data.dto.CustomerDto" %>
+<%@ page import="sg.gov.ida.kyc.data.dto.BankDto" %>
+<%@ page import="sg.gov.ida.kyc.data.dto.PepStatusDto" %>
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
