@@ -33,7 +33,7 @@ public class CustomerEdit extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher rd = request.getRequestDispatcher("query.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("customer.jsp");
         rd.forward(request, response);
 
     }

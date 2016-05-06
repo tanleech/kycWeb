@@ -49,24 +49,20 @@
                     <div class="form-group">
                         <label class="control-label col-sm-1">Pep Rating:</label>
                         <div class="col-sm-3">
-                            <!--
-                        <select class="form-control" id="dept" name="dept">
+                            
+                        <select class="form-control" id="pep" name="pep">
                             <c:choose>
-                                <c:when test="${!empty requestScope.deptList}">
-                                    <c:forEach var="entry" items="${requestScope.deptList}">
-                                        <option value="${entry.id}"
-                                                ${requestScope.user.dept.dept.id == entry.id ? 'selected' : ''}>
+                                <c:when test="${!empty requestScope.pepList}">
+                                    <c:forEach var="entry" items="${requestScope.pepList}">
+                                        <option value="${entry.status_cd}"
+                                                ${requestScope.cust.pepStatus.status_cd == entry.status_cd ? 'selected' : ''}>
                                             ${entry.description}
                                         </option>
                                     </c:forEach>
                                 </c:when>
                             </c:choose>
                         </select>    
-                            -->
-                             <option value="R">Red</option>
-                             <option value="A">Amber</option>
-                             <option value="G">Green</option>
-                         </select>                        
+                            
                         </div>
                     </div>
                     
@@ -88,5 +84,6 @@
         </div>
         <!-- /#page-content-wrapper -->
 
-    </div>    </body>
+    </div>   
+    </body>
 </html>

@@ -6,6 +6,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="sg.gov.ida.kyc.data.CustomerDto" %>
 <%@ page import="sg.gov.ida.kyc.data.BankDto" %>
+<%@ page import="sg.gov.ida.kyc.data.PepStatusDto" %>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

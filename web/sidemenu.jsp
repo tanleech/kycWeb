@@ -14,10 +14,10 @@
                     <h1><strong>eKYC</strong></h1>
                 </li>
                 <li>
-                    <a href="#" style="color: white">Create</a>
+                    <a href="customerEdit" style="color: white">Create</a>
                 </li>
                 <li>
-                    <a href="#" style="color: white">Query</a>
+                    <a href="customerList" style="color: white">Query</a>
                 </li>
                 <li>
                     <a href="#" style="color: white">Messages</a>

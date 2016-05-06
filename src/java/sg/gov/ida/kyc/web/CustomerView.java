@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import sg.gov.ida.kyc.data.CustomerDAO;
 import sg.gov.ida.kyc.data.CustomerDto;
 import sg.gov.ida.kyc.data.EmployeeDto;
+import sg.gov.ida.kyc.data.PepStatusDAO;
 
 /**
  *
@@ -49,11 +50,14 @@ public class CustomerView extends HttpServlet {
         EmployeeDto emp = (EmployeeDto)session.getAttribute("login");
         int permission = Integer.parseInt(consent);
         String page = "consent.jsp";
-        if(permission == emp.getBank().getBankId())
+        if(emp!=null && permission == emp.getBank().getBankId())
         {
             CustomerDAO custDAO = new CustomerDAO();
             CustomerDto cust = custDAO.findByKey(uid, permission);
             request.setAttribute("cust", cust);
+            
+            PepStatusDAO pepDao = new PepStatusDAO();
+            request.setAttribute("pepList",pepDao.all());
             page = "customer.jsp";
         }
         RequestDispatcher rd = request.getRequestDispatcher(page);
