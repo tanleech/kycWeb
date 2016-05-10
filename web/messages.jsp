@@ -4,9 +4,10 @@
     Author     : ftbs
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="sg.gov.ida.kyc.data.dto.CustomerDto" %>
+<%@ page import="sg.gov.ida.kyc.data.dto.RequestDto" %>
 <%@ page import="sg.gov.ida.kyc.data.dto.BankDto" %>
-<%@ page import="sg.gov.ida.kyc.data.dto.PepStatusDto" %>
+<%@ page import="sg.gov.ida.kyc.data.dto.CustomerDto" %>
+
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -33,16 +34,16 @@
                             <th>Identifier</th>
                             <th>Name</th>
                             <th>Ownership</th>
-                            <th>Consent for</th>
+                            <th>Request From</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${requestScope.custList}" var="entry">
+                        <c:forEach items="${requestScope.reqList}" var="entry">
                             <tr>
-                                <td><a href="customerView?uid=${entry.uid}&consent=${entry.consent.bankId}">${entry.uid}</a></td>
-                                <td>${entry.name}</td>
-                                <td>${entry.originator.name}</td>
-                                <td>${entry.consent.name}</td>
+                                <td>${entry.customer.uid}</td>
+                                <td>${entry.customer.name}</td>
+                                <td>${entry.owner.name}</td>
+                                <td>${entry.requester.name}</td>
                             </tr>
                             
                         </c:forEach>

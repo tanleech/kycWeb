@@ -6,6 +6,8 @@
 package sg.gov.ida.kyc.web;
 
 import java.io.IOException;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import sg.gov.ida.kyc.data.RequestDAO;
-import sg.gov.ida.kyc.data.dto.CustomerDto;
+import sg.gov.ida.kyc.data.dto.EmployeeDto;
+import sg.gov.ida.kyc.data.dto.RequestDto;
 
 /**
  *
@@ -36,11 +39,15 @@ public class MessageList extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         //get the session
         HttpSession session = request.getSession();
-        CustomerDto cust = (CustomerDto)session.getAttribute("login");
-        
+        EmployeeDto emp = (EmployeeDto)session.getAttribute("login");
+        System.out.println("emp: "+emp.getBank().getBankId());
         RequestDAO reqDao = new RequestDAO();
+        List<RequestDto> reqList = reqDao.getIncomingRequests(emp.getBank().getBankId());
         
+        request.setAttribute("reqList",reqList);
         
+        RequestDispatcher rd = request.getRequestDispatcher("messages.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

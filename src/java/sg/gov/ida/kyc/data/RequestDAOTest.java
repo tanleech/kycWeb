@@ -20,7 +20,7 @@ public class RequestDAOTest {
     public static void main(String[] args) {
         // TODO code application logic here
         RequestDAO dao = new RequestDAO();
-        List<RequestDto> list =  dao.getIncomingRequests("2");
+        List<RequestDto> list =  dao.getIncomingRequests(4);
         for(int i=0;i<list.size();i++)
         {
             System.out.println("Req: "+list.get(i).getReqId());

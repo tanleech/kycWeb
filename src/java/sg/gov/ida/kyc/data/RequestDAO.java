@@ -46,7 +46,7 @@ public class RequestDAO {
 
     }
     
-    public List<RequestDto> getIncomingRequests(String ownerId)
+    public List<RequestDto> getIncomingRequests(int ownerId)
     {
         Session session = null;
         List reqList = null;
@@ -55,7 +55,7 @@ public class RequestDAO {
             session =  DaoDelegate.getInstance().create();
             Criteria cr = session.createCriteria(RequestDto.class,"request");
             cr.createAlias("request.owner", "owner");
-            cr.add(Restrictions.eq("owner.bankId", Integer.parseInt(ownerId)));
+            cr.add(Restrictions.eq("owner.bankId", ownerId));
            
             //Criteria owner = cr.createCriteria("owner");
             Criteria requester = cr.createCriteria("requester");
