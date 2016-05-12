@@ -46,7 +46,6 @@
                                 <td>${entry.owner.name}</td>
                                 <td>${entry.requester.name}</td>
                                 <td><a href="#">Approve</a> / <a href="#">Disapprove</a></td>
-                                
                             </tr>
                             
                         </c:forEach>
