@@ -24,25 +24,25 @@
                     <div class="form-group">
                         <label class="control-label col-sm-1">Identifier:</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" value="${requestScope.cust.uid}"/>   
+                            <input type="text" name="uid" class="form-control" value="${requestScope.cust.uid}"/>   
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-1">Name:</label>
                         <div class="col-sm-3">
-                           <input type="text" class="form-control" value="${requestScope.cust.name}"/>   
+                           <input type="text" name="name" class="form-control" value="${requestScope.cust.name}"/>   
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-1">Address:</label>
                         <div class="col-sm-3">
-                           <input type="text" class="form-control" value="${requestScope.cust.address}"/>   
+                           <input type="text" name="address" class="form-control" value="${requestScope.cust.address}"/>   
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-1">Phone:</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" value="${requestScope.cust.phone}"/>   
+                            <input type="text" name="phone" class="form-control" value="${requestScope.cust.phone}"/>   
                         </div>
                     </div>
                     
@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-1">Pep Reason:</label>
                         <div class="col-sm-3">
-                           <input type="text" class="form-control" value="${requestScope.cust.pepReason}"/>   
+                           <input type="text" class="form-control" name="pepReason" value="${requestScope.cust.pepReason}"/>   
                         </div>
                     </div>
                     
