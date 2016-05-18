@@ -55,8 +55,8 @@ public class KeyStoreTest {
   PublicKey publicKey = certificate.getPublicKey();
 
   //encrypt
-  byte[] encrypted = encrypt(publicKey,"what the hell ?".getBytes("UTF8"));
-  System.out.println("encry: "+encrypted);
+  byte[] encrypted = encrypt(publicKey,"what the hell?".getBytes("UTF8"));
+  System.out.println("encry: "+ new String(encrypted, "UTF8"));
 
   //get the private key
   PrivateKey priv = readPrivateKey("/home/dcnfc/clientkeystore");
