@@ -90,11 +90,11 @@ public class SecureUtil {
         PrivateKey priv = null;
         FileInputStream is = new FileInputStream(keyStore);
         KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
-        keystore.load(is, "zaq1ZAQ!".toCharArray());
+        keystore.load(is, "passw0rd".toCharArray());
 
         //String alias = "ida";
 
-        Key key = keystore.getKey(alias, "zaq1ZAQ!".toCharArray());
+        Key key = keystore.getKey(alias, "passw0rd".toCharArray());
         if (key instanceof PrivateKey) {
             priv = (PrivateKey)key;
         }
