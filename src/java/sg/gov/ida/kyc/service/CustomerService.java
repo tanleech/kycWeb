@@ -174,10 +174,4 @@ class CustomerJson
     public void setDateCreated(String DateCreated) {
         this.DateCreated = DateCreated;
     }
-
-
-    
-    
-
-
 }

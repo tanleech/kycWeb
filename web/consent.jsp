@@ -35,6 +35,23 @@
                         <label class="control-label col-sm-1">Ownership:</label>
                         <div class="col-sm-3">
                            <input type="text" class="form-control" name="owner" value="${requestScope.cust.originator.name}"/>   
+                <form action="" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-1">Identifier:</label>
+                        <div class="col-sm-3">
+                           <input type="text" class="form-control"/>   
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-1">Name:</label>
+                        <div class="col-sm-3">
+                           <input type="text" class="form-control"/>   
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-1">Ownership:</label>
+                        <div class="col-sm-3">
+                           <input type="text" class="form-control"/>   
                         </div>
                     </div>
                     <div class="form-group">

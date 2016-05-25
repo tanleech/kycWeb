@@ -44,6 +44,8 @@ public class MessageList extends HttpServlet {
         RequestDAO reqDao = new RequestDAO();
         List<RequestDto> reqList = reqDao.getIncomingRequests(emp.getBank().getBankId());
         System.out.println("reqList: "+reqList);
+        System.out.println("emp: "+emp.getBank().getBankId());
+        
         request.setAttribute("reqList",reqList);
         
         RequestDispatcher rd = request.getRequestDispatcher("messages.jsp");

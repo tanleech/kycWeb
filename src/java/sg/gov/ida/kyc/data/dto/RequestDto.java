@@ -53,8 +53,6 @@ public class RequestDto implements Serializable {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
-
-    
     public String getReqId() {
         return reqId;
     }

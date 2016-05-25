@@ -45,6 +45,7 @@
                             <input type="text" name="phone" class="form-control" value="${requestScope.cust.phone}"/>   
                         </div>
                     </div>
+                    
                     <div class="form-group">
                         <div class="col-sm-1">
                             <button class="btn btn-primary">Submit</button>
